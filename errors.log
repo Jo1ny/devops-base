@@ -1,0 +1,21 @@
+сен 13 18:04:58 cachyos kernel: x86/cpu: SGX disabled or unsupported by BIOS.
+сен 13 18:04:58 cachyos kernel: virt/tdx: TDX not supported by the host platform
+сен 13 18:04:58 cachyos kernel: ACPI BIOS Error (bug): Failure creating named object [\ADBG], AE_ALREADY_EXISTS (20260408/dswload2-327)
+сен 13 18:04:58 cachyos kernel: ACPI Error: AE_ALREADY_EXISTS, During name lookup/catalog (20260408/psobject-220)
+сен 13 18:04:58 cachyos kernel: ACPI BIOS Error (bug): Could not resolve symbol [\_SB.PC00.PGON.PBGE], AE_NOT_FOUND (20260408/psargs-365)
+сен 13 18:04:58 cachyos kernel: ACPI Error: Aborting method \_SB.PC00.PGON due to previous error (AE_NOT_FOUND) (20260408/psparse-545)
+сен 13 18:04:58 cachyos kernel: ACPI Error: Aborting method \_SB.PC00.PEG1.PG01._ON due to previous error (AE_NOT_FOUND) (20260408/psparse-545)
+сен 13 18:04:58 cachyos kernel: mce: [Hardware Error]: CPU 0: Machine Check: 0 Bank 6: ee2000000040110a
+сен 13 18:04:58 cachyos kernel: mce: [Hardware Error]: TSC 0 ADDR fef20000 MISC 43880000086 
+сен 13 18:04:58 cachyos kernel: mce: [Hardware Error]: PROCESSOR 0:a0653 TIME 1789311893 SOCKET 0 APIC 0 microcode 0
+сен 13 18:04:58 cachyos kernel: 
+сен 13 18:04:58 cachyos kernel: usb 1-11: can't set config #1, error -71
+сен 13 18:04:58 cachyos kernel: usb usb1-port11: disabled by hub (EMI?), re-enabling...
+сен 13 18:05:06 cachyos-x8664 wpa_supplicant[741]: wlan0: nl80211: kernel reports: multicast RX registrations are not supported
+сен 13 18:05:10 cachyos-x8664 dbus-broker-launch[825]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/usr/share/dbus-1/services/org.xfce.Thunar.FileManager1.service'
+сен 13 18:05:14 cachyos-x8664 lightdm[1001]: gkr-pam: unable to locate daemon control file
+сен 13 18:05:14 cachyos-x8664 dbus-broker-launch[1071]: Ignoring duplicate name 'org.freedesktop.FileManager1' in service file '/usr/share/dbus-1/services/org.xfce.Thunar.FileManager1.service'
+сен 13 18:05:23 cachyos-x8664 bluetoothd[684]: src/profile.c:record_cb() Unable to get Hands-Free Voice gateway SDP record: Host is down
+сен 13 18:05:35 cachyos-x8664 bluetoothd[684]: src/profile.c:record_cb() Unable to get Hands-Free Voice gateway SDP record: Host is down
+сен 13 18:17:27 cachyos-x8664 bluetoothd[684]: Authorization request for non-connected device!?
+сен 13 18:17:30 cachyos-x8664 bluetoothd[684]: src/profile.c:record_cb() No SDP records found for Hands-Free Voice gateway
