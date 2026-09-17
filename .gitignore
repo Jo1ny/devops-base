@@ -1,2 +1,16 @@
-secret.env
-*.log
+# Переменные окружения и секреты
+.env
+.env.*
+*.env
+!.env.example
+
+# Ключи и сертификаты
+*.pem
+*.key
+*.crt
+id_rsa*
+id_ed25519*
+
+# Временные файлы
+*.swp
+*.bak
