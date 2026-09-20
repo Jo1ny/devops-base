@@ -24,4 +24,4 @@ jobs:
         run: docker compose ps
 
       - name: Run automated healthcheck
-        run: bash scripts/healthcheck.sh 8085
+        run: bash scripts/healthcheck.sh http://localhost:8085
