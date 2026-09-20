@@ -23,5 +23,14 @@ jobs:
       - name: Verify running containers
         run: docker compose ps
 
-      - name: Run automated healthcheck
-        run: bash scripts/healthcheck.sh http://localhost:8085:80
+      - name: Verify running containers
+        run: docker compose ps
+
+      - name: Wait for service readiness and test
+        run: |
+          sleep 2
+          bash scripts/healthcheck.sh http://127.0.0.1:8085
+
+      - name: Dump container logs on failure
+        if: failure()
+        run: docker compose logs
