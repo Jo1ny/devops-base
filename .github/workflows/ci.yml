@@ -14,10 +14,14 @@ jobs:
       - name: Check out repository code
         uses: actions/checkout@v4
 
-      - name: Make script executable
-        run: chmod +x scripts/healthcheck.sh
+      - name: Validate Bash syntax
+        run: bash -n scripts/healthcheck.sh
 
-      - name: Run healthcheck dry-run test
-        run: |
-          echo "Testing script execution..."
-          bash -n scripts/healthcheck.sh
+      - name: Start services via Docker Compose
+        run: docker compose up -d
+
+      - name: Verify running containers
+        run: docker compose ps
+
+      - name: Run automated healthcheck
+        run: bash scripts/healthcheck.sh 8085
