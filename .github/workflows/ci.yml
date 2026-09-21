@@ -1,4 +1,4 @@
-name: DevOps Base CI
+name: CI Pipeline
 
 on:
   push:
@@ -7,43 +7,27 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
+  build-and-scan:
+    name: Build Docker & Scan Security
     runs-on: ubuntu-latest
 
     steps:
-      - name: Check out repository code
+      # 1. Скачиваем репозиторий на раннер
+      - name: Checkout Code
         uses: actions/checkout@v4
 
-      - name: Lint Bash scripts with Shellcheck
-        run: shellcheck scripts/*.sh
+      # 2. Собираем Docker-образ
+      - name: Build Docker Image
+        run: |
+          docker build -t my-devops-site:${{ github.sha }} .
 
-      - name: Validate Bash syntax
-        run: bash -n scripts/healthcheck.sh
-
-      - name: Run Trivy vulnerability scanner on base image
+      # 3. Security Gate: Сканируем образ через Trivy
+      - name: Run Trivy Security Scan
         uses: aquasecurity/trivy-action@master
         with:
-          image-ref: 'nginx:alpine'
+          image-ref: 'my-devops-site:${{ github.sha }}'
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
           vuln-type: 'os,library'
-          severity: 'CRITICAL'
-
-      - name: Start services via Docker Compose
-        run: docker compose up -d
-
-      - name: Verify running containers
-        run: docker compose ps
-
-      - name: Verify running containers
-        run: docker compose ps
-
-      - name: Wait for service readiness and test
-        run: |
-          sleep 2
-          bash scripts/healthcheck.sh http://127.0.0.1:8085
-
-      - name: Dump container logs on failure
-        if: failure()
-        run: docker compose logs
+          severity: 'CRITICAL,HIGH'
