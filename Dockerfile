@@ -1,6 +1,9 @@
 # 1. Базовый образ (фундамент)
 FROM nginx:alpine
 
+# Обновление пакетов безопасности Alpine (исправление CVE-2026-93990)
+RUN apk update && apk upgrade --no-cache
+
 # 2. Очистка дефолтного мусора
 RUN rm -rf /usr/share/nginx/html/*
 
